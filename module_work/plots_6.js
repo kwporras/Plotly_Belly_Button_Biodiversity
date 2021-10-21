@@ -16,7 +16,7 @@ init();
 
 function optionChanged(newSample) {
   buildMetadata(newSample);
-  // buildCharts(newSample);
+  buildCharts(newSample);
 }
 
 
@@ -24,8 +24,7 @@ function buildMetadata(sample) {
   d3.json("samples.json").then((data) => {
     var metadata = data.metadata;
     var resultArray = metadata.filter(sampleObj => sampleObj.id == sample);
-    var result = Object.entries(resultArray[0])
-    // =>  (key + ': ' + value);});
+    var result = Object.entries(resultArray[0]);
     var PANEL = d3.select("#sample-metadata");
 
     PANEL.html("");
